@@ -4,6 +4,7 @@ import com.ufpr.backend_funcionario_departamento.entity.Departamento;
 import com.ufpr.backend_funcionario_departamento.entity.Funcionario;
 import com.ufpr.backend_funcionario_departamento.repository.DepartamentoRepository;
 import com.ufpr.backend_funcionario_departamento.repository.FuncionarioRepository;
+import org.hibernate.grammars.hql.HqlParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -33,5 +34,10 @@ public class FuncionarioService {
     public List<Funcionario> findFuncionarioByDepartamento(Departamento departamento) {
 
         return funcionarioRepository.findAllFuncionariosByDepartamento(departamento);
+    }
+
+    @Transactional(readOnly = true)
+    public Funcionario findFirstFuncionarioByCodigo () {
+        return funcionarioRepository.findFirstByOrderByCodigoAsc();
     }
 }
