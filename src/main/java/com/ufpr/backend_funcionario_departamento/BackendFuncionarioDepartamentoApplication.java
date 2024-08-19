@@ -44,6 +44,15 @@ public class BackendFuncionarioDepartamentoApplication {
 			log.info("===========1. Listar um funcionário pelo seu nome e quantidade de dependentes utilizando consulta por palavras-chaves.");
 			Funcionario func01 = funcionarioService.FindByNomeAndByQuantidadeDependentes("Rafael de Luca",3);
 			log.info(func01.toString());
+
+			log.info("");
+			log.info("");
+			log.info("===========2. Listar todos os funcionários de um determinado departamento por JPQL via @Query.");
+			Departamento departamento = departamentoService.findAllDepartamentos().get(4);
+			for(Funcionario func: funcionarioService.findFuncionarioByDepartamento(departamento))  {
+				log.info(func.toString());
+			}
+
 		};
 	}
 }
