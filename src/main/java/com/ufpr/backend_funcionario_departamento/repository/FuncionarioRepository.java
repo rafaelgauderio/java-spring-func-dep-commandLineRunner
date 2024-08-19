@@ -25,4 +25,10 @@ public interface FuncionarioRepository extends JpaRepository<Funcionario, Long> 
             "ORDER BY salario_func DESC " +
             "LIMIT 3", nativeQuery = true)
     List<Funcionario> findThreeWithHigherSalary ();
+
+    @Query("SELECT func " +
+            "FROM Funcionario func " +
+            "WHERE quantDependentes = 0 " +
+            "ORDER BY nome ASC")
+    List<Funcionario> findEmployeeQuantDependentsEqualZeroOrderByName ();
 }

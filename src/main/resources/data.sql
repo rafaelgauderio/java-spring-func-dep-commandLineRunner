@@ -17,6 +17,9 @@ INSERT INTO funcionario (nome_func, quantidade_dependentes_func, salario_func, c
 VALUES ('Carolina Souza', 0, 4500.50, 'Analista de crédito', 5);
 
 INSERT INTO funcionario (nome_func, quantidade_dependentes_func, salario_func, cargo_func, departamento_func)
+VALUES ('Ana Clara', 0, 1500.50, 'Faturista financeiro', 5);
+
+INSERT INTO funcionario (nome_func, quantidade_dependentes_func, salario_func, cargo_func, departamento_func)
 VALUES ('Lauro Ricao', 1, 7800.50, 'Estoquista', 4);
 
 INSERT INTO funcionario (nome_func, quantidade_dependentes_func, salario_func, cargo_func, departamento_func)

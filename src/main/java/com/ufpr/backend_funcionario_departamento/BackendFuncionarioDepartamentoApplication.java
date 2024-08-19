@@ -72,6 +72,12 @@ public class BackendFuncionarioDepartamentoApplication {
 				log.info(func.toString());
 			}
 
+			log.info("");
+			log.info("");
+			log.info("===========6. Listar os funcionários que não tem dependentes em ordem crescente de nome por JPQL via @Query.");
+			for(Funcionario nickname : funcionarioService.findEmployeeWhereQuantDependentsEqualZeroOrderByName()) {
+				log.info(nickname.toString());
+			}
 
 		};
 	}
