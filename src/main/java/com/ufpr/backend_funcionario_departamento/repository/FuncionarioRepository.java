@@ -19,4 +19,10 @@ public interface FuncionarioRepository extends JpaRepository<Funcionario, Long> 
     List<Funcionario> findAllFuncionariosByDepartamento (Departamento Departamento);
 
     Funcionario findFirstByOrderBySalarioDesc();
+
+    @Query(value = "SELECT * " +
+            "FROM funcionario " +
+            "ORDER BY salario_func DESC " +
+            "LIMIT 3", nativeQuery = true)
+    List<Funcionario> findThreeWithHigherSalary ();
 }

@@ -65,6 +65,14 @@ public class BackendFuncionarioDepartamentoApplication {
 			Funcionario funcionario01 = funcionarioService.findFirstFuncionarioWithHigherSalario();
 			log.info(funcionario01.toString());
 
+			log.info("");
+			log.info("");
+			log.info("===========5. Listar os 3 (três) primeiros funcionários que tem os maiores salários.");
+			for(Funcionario func : funcionarioService.findThreeEmployeeWithHigherSalary()) {
+				log.info(func.toString());
+			}
+
+
 		};
 	}
 }

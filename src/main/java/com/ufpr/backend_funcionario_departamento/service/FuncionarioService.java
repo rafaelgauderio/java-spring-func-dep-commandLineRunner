@@ -40,4 +40,9 @@ public class FuncionarioService {
     public Funcionario findFirstFuncionarioWithHigherSalario () {
         return funcionarioRepository.findFirstByOrderBySalarioDesc();
     }
+
+    @Transactional(readOnly = true)
+    public List<Funcionario> findThreeEmployeeWithHigherSalary () {
+        return  funcionarioRepository.findThreeWithHigherSalary();
+    }
 }
