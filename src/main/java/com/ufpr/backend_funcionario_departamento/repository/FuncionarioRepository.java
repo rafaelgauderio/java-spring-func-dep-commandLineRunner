@@ -18,5 +18,5 @@ public interface FuncionarioRepository extends JpaRepository<Funcionario, Long> 
             "WHERE departamento = ?1")
     List<Funcionario> findAllFuncionariosByDepartamento (Departamento Departamento);
 
-    Funcionario findFirstByOrderByCodigoAsc();
+    Funcionario findFirstByOrderBySalarioDesc();
 }

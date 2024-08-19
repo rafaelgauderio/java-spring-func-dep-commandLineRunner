@@ -61,8 +61,8 @@ public class BackendFuncionarioDepartamentoApplication {
 
 			log.info("");
 			log.info("");
-			log.info("===========4. Listar o primeiro funcionário cadastrado.");
-			Funcionario funcionario01 = funcionarioService.findFirstFuncionarioByCodigo();
+			log.info("===========4. Listar o primeiro funcionário que tem o maior salario.");
+			Funcionario funcionario01 = funcionarioService.findFirstFuncionarioWithHigherSalario();
 			log.info(funcionario01.toString());
 
 		};

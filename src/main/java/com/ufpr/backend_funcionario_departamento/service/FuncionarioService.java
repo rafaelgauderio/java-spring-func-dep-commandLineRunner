@@ -37,7 +37,7 @@ public class FuncionarioService {
     }
 
     @Transactional(readOnly = true)
-    public Funcionario findFirstFuncionarioByCodigo () {
-        return funcionarioRepository.findFirstByOrderByCodigoAsc();
+    public Funcionario findFirstFuncionarioWithHigherSalario () {
+        return funcionarioRepository.findFirstByOrderBySalarioDesc();
     }
 }
