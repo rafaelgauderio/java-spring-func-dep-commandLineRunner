@@ -28,7 +28,6 @@ public class BackendFuncionarioDepartamentoApplication {
 
 			log.info("");
 			log.info("");
-			log.info("");
 			log.info("===========Listagem das Musicas");
 			for (Departamento nickname : departamentoService.findAllDepartamentos()) {
 				log.info(nickname.toString());
@@ -36,10 +35,15 @@ public class BackendFuncionarioDepartamentoApplication {
 
 			log.info("");
 			log.info("");
-			log.info("");
-			log.warn("===========Listagem das Funcionários");
+			log.info("===========Listagem das Funcionários");
 			for(Funcionario func : funcionarioService.findAllFuncionarios())
 				log.warn(func.toString());
+
+			log.info("");
+			log.info("");
+			log.info("===========1. Listar um funcionário pelo seu nome e quantidade de dependentes utilizando consulta por palavras-chaves.");
+			Funcionario func01 = funcionarioService.FindByNomeAndByQuantidadeDependentes("Rafael de Luca",3);
+			log.info(func01.toString());
 		};
 	}
 }

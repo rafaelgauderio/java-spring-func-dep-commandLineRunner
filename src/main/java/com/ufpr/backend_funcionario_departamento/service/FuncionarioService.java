@@ -18,4 +18,9 @@ public class FuncionarioService {
     public List<Funcionario> findAllFuncionarios () {
         return  funcionarioRepository.findAll();
     }
+
+    @Transactional(readOnly = true)
+    public Funcionario FindByNomeAndByQuantidadeDependentes(String nome, Integer quantDependentes) {
+        return funcionarioRepository.findByNomeAndQuantDependentes(nome, quantDependentes);
+    }
 }

@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface FuncionarioRepository extends JpaRepository<Funcionario, Long> {
+
+    Funcionario findByNomeAndQuantDependentes(String nome, Integer quantDependentes);
 }

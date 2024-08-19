@@ -15,7 +15,7 @@ public class Funcionario {
     @Column(name= "nome_func",length = 80, nullable = false)
     private String nome;
     @Column(name="quantidade_dependentes_func")
-    private Integer quant_dependentes;
+    private Integer quantDependentes;
     @Column(name = "salario_func")
     private Double salario;
     @Column(name = "cargo_func", length = 60)
@@ -30,7 +30,7 @@ public class Funcionario {
         return "Funcionario{" +
                 "codigo=" + codigo +
                 ", nome='" + nome + '\'' +
-                ", quantidade de dependentes=" + quant_dependentes +
+                ", quantidade de dependentes=" + quantDependentes +
                 ", salário=" + salario +
                 ", cargo='" + cargo + '\'' +
                 ", departamento=" + departamento.getNome() +
