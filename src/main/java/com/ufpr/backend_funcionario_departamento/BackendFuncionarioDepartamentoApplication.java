@@ -53,6 +53,12 @@ public class BackendFuncionarioDepartamentoApplication {
 				log.info(func.toString());
 			}
 
+			log.info("");
+			log.info("");
+			log.info("===========3. Listar o primeiro departamento cadastrado.");
+			Departamento departamento1 = departamentoService.findFisrtDepartamentoCadastrado();
+			log.info(departamento1.toString());
+
 		};
 	}
 }

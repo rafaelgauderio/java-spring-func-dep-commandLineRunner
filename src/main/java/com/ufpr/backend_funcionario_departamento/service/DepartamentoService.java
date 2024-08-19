@@ -18,4 +18,10 @@ public class DepartamentoService {
     public List<Departamento> findAllDepartamentos () {
         return departamentoRepository.findAll();
     }
+
+    @Transactional(readOnly = true)
+    public Departamento findFisrtDepartamentoCadastrado () {
+        return departamentoRepository.findFirstByOrderByCodigoAsc();
+    }
+
 }
