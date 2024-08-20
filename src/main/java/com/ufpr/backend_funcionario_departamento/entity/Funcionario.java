@@ -6,6 +6,10 @@ import lombok.Data;
 @Entity
 @Table(name = "funcionario")
 @Data
+@NamedQueries({
+        @NamedQuery(name="Funcionario.findByQuantityOfDependents",
+            query = "FROM Funcionario WHERE quantDependentes = ?1")
+})
 public class Funcionario {
 
     @Id

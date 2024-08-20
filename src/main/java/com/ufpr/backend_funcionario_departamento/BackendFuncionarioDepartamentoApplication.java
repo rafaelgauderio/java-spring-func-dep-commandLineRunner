@@ -95,6 +95,14 @@ public class BackendFuncionarioDepartamentoApplication {
 				log.info(func.toString());
 			}
 
+			log.info("");
+			log.info("");
+			log.info("===========9. Alterar a classe Funcionario e criar uma consulta para listar os funcionários com uma determinada quantidade de dependentes por @NamedQuery.");
+			log.info("=========== Funcionários com 3 depententes by Named Query.");
+			for(Funcionario func : funcionarioService.findByQuantDependentsNamedQuery(3)){
+				log.info(func.toString());
+			}
+
 		};
 	}
 }

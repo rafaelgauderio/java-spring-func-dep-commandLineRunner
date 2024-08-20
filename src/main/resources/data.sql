@@ -25,3 +25,6 @@ VALUES ('Lauro Ricao', 1, 7800.50, 'Estoquista', 4);
 INSERT INTO funcionario (nome_func, quantidade_dependentes_func, salario_func, cargo_func, departamento_func)
 VALUES ('Riquelme Pereira', 1, 5200.50, 'Pagador de Boleto', 5);
 
+INSERT INTO funcionario (nome_func, quantidade_dependentes_func, salario_func, cargo_func, departamento_func)
+VALUES ('Consuela Devops', 3, 9400.50, 'Desenvolvedora ', 2);
+

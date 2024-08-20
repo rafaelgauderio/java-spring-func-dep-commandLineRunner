@@ -41,4 +41,8 @@ public interface FuncionarioRepository extends JpaRepository<Funcionario, Long> 
             "FROM funcionario " +
             "WHERE salario_func > ?1", nativeQuery = true)
     List<Funcionario> findEmployeeSalaryGreaterThanNativeQuery (Double salary);
+
+    List<Funcionario> findByQuantityOfDependents(Integer dependents);
+
+
 }

@@ -4,7 +4,6 @@ import com.ufpr.backend_funcionario_departamento.entity.Departamento;
 import com.ufpr.backend_funcionario_departamento.entity.Funcionario;
 import com.ufpr.backend_funcionario_departamento.repository.DepartamentoRepository;
 import com.ufpr.backend_funcionario_departamento.repository.FuncionarioRepository;
-import org.hibernate.grammars.hql.HqlParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -59,5 +58,10 @@ public class FuncionarioService {
     @Transactional(readOnly = true)
     public List<Funcionario> findEmployeeWhereSalaryGreaterThanNativeQuery (Double salary) {
         return funcionarioRepository.findEmployeeSalaryGreaterThanNativeQuery(salary);
+    }
+
+    @Transactional(readOnly = true)
+    public List<Funcionario> findByQuantDependentsNamedQuery(Integer dependents) {
+        return funcionarioRepository.findByQuantityOfDependents(dependents);
     }
 }
