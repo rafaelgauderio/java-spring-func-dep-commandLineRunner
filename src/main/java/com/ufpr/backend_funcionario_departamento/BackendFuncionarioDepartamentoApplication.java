@@ -79,6 +79,22 @@ public class BackendFuncionarioDepartamentoApplication {
 				log.info(nickname.toString());
 			}
 
+			log.info("");
+			log.info("");
+			log.info("===========7. Listar os funcionários que tem salário maior que um determinado valor por JPQL sobrescrevendo palavras-chaves @Query.");
+			log.info("===========Funcionários com salários > 5000.00");
+			for(Funcionario func : funcionarioService.findEmployeeWhereSalaryGreaterThanValue(5000.00)) {
+				log.info(func.toString());
+			}
+
+			log.info("");
+			log.info("");
+			log.info("===========8. Listar os funcionários que tem salário maior que um determinado valor por @Query com native query.");
+			log.info("===========Funcionários com salários > 4000.00");
+			for(Funcionario func : funcionarioService.findEmployeeWhereSalaryGreaterThanNativeQuery(4000.00)) {
+				log.info(func.toString());
+			}
+
 		};
 	}
 }

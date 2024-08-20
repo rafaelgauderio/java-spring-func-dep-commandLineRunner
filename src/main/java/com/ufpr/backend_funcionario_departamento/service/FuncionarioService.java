@@ -50,4 +50,14 @@ public class FuncionarioService {
     public List<Funcionario> findEmployeeWhereQuantDependentsEqualZeroOrderByName () {
         return funcionarioRepository.findEmployeeQuantDependentsEqualZeroOrderByName();
     }
+
+    @Transactional(readOnly = true)
+    public List<Funcionario> findEmployeeWhereSalaryGreaterThanValue (Double salary) {
+        return funcionarioRepository.findEmployeeSalaryGreaterThan(salary);
+    }
+
+    @Transactional(readOnly = true)
+    public List<Funcionario> findEmployeeWhereSalaryGreaterThanNativeQuery (Double salary) {
+        return funcionarioRepository.findEmployeeSalaryGreaterThanNativeQuery(salary);
+    }
 }

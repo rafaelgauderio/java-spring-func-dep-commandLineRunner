@@ -31,4 +31,14 @@ public interface FuncionarioRepository extends JpaRepository<Funcionario, Long> 
             "WHERE quantDependentes = 0 " +
             "ORDER BY nome ASC")
     List<Funcionario> findEmployeeQuantDependentsEqualZeroOrderByName ();
+
+    @Query("SELECT func " +
+            "FROM Funcionario func " +
+            "WHERE salario > ?1")
+    List<Funcionario> findEmployeeSalaryGreaterThan (Double salary);
+
+    @Query(value = "SELECT * " +
+            "FROM funcionario " +
+            "WHERE salario_func > ?1", nativeQuery = true)
+    List<Funcionario> findEmployeeSalaryGreaterThanNativeQuery (Double salary);
 }
