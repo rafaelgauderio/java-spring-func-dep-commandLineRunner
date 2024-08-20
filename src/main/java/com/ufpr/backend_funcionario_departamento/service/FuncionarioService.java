@@ -64,4 +64,9 @@ public class FuncionarioService {
     public List<Funcionario> findByQuantDependentsNamedQuery(Integer dependents) {
         return funcionarioRepository.findByQuantityOfDependents(dependents);
     }
+
+    @Transactional(readOnly = true)
+    public List<Funcionario> FindByNameLikeNamedNativeQuery(String subStringNome) {
+        return funcionarioRepository.FindByNameLike(subStringNome);
+    }
 }

@@ -103,6 +103,19 @@ public class BackendFuncionarioDepartamentoApplication {
 				log.info(func.toString());
 			}
 
+			log.info("");
+			log.info("");
+			log.info("===========10. . Alterar a classe Funcionario e criar uma consulta para listar os funcionários que contenham em " +
+					"qualquer parte do seu nome um determinado nome por @NamedNativeQuery.");
+			log.info("Nomes que contém 'Caro'");
+			for(Funcionario f : funcionarioService.FindByNameLikeNamedNativeQuery("Caro")){
+				log.info(f.toString());
+			}
+			log.info("Nomes que contém 'Luca'");
+			for(Funcionario f : funcionarioService.FindByNameLikeNamedNativeQuery("Luca")){
+				log.info(f.toString());
+			}
+
 		};
 	}
 }

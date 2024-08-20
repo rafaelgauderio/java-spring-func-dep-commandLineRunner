@@ -44,5 +44,6 @@ public interface FuncionarioRepository extends JpaRepository<Funcionario, Long> 
 
     List<Funcionario> findByQuantityOfDependents(Integer dependents);
 
+    List<Funcionario> FindByNameLike(String subStringNome);
 
 }

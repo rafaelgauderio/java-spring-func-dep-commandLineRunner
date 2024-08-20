@@ -10,6 +10,14 @@ import lombok.Data;
         @NamedQuery(name="Funcionario.findByQuantityOfDependents",
             query = "FROM Funcionario WHERE quantDependentes = ?1")
 })
+@NamedNativeQueries({
+        @NamedNativeQuery(
+                name= "Funcionario.FindByNameLike",
+                query = "SELECT * FROM Funcionario WHERE nome_func LIKE CONCAT('%',?1,'%') ",
+                resultClass = Funcionario.class
+        )
+})
+
 public class Funcionario {
 
     @Id
