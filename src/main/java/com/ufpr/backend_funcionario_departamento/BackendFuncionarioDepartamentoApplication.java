@@ -105,7 +105,7 @@ public class BackendFuncionarioDepartamentoApplication {
 
 			log.info("");
 			log.info("");
-			log.info("===========10. . Alterar a classe Funcionario e criar uma consulta para listar os funcionários que contenham em " +
+			log.info("===========10. Alterar a classe Funcionario e criar uma consulta para listar os funcionários que contenham em " +
 					"qualquer parte do seu nome um determinado nome por @NamedNativeQuery.");
 			log.info("Nomes que contém 'Caro'");
 			for(Funcionario f : funcionarioService.FindByNameLikeNamedNativeQuery("Caro")){
@@ -114,6 +114,14 @@ public class BackendFuncionarioDepartamentoApplication {
 			log.info("Nomes que contém 'Luca'");
 			for(Funcionario f : funcionarioService.FindByNameLikeNamedNativeQuery("Luca")){
 				log.info(f.toString());
+			}
+
+			log.info("");
+			log.info("");
+			log.info("==========12. Listar todos os funcionários de um determinado departamento que não possuam dependentes");
+			Departamento dep01 = departamentoService.findAllDepartamentos().get(4); // index 04 do departamento Financeiro
+			for(Funcionario func: funcionarioService.findEmployeesDepentsEqualZeroByDepartamentJPQL(dep01)) {
+				log.info(func.toString());
 			}
 
 		};

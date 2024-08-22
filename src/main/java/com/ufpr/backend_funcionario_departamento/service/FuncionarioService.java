@@ -69,4 +69,9 @@ public class FuncionarioService {
     public List<Funcionario> FindByNameLikeNamedNativeQuery(String subStringNome) {
         return funcionarioRepository.FindByNameLike(subStringNome);
     }
+
+    @Transactional(readOnly = true)
+    public List<Funcionario> findEmployeesDepentsEqualZeroByDepartamentJPQL(Departamento departamento) {
+        return funcionarioRepository.findEmployeesDepentsEqualZeroByDepartament(departamento);
+    }
 }

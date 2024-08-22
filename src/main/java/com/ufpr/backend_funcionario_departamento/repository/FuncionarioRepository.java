@@ -4,6 +4,7 @@ import com.ufpr.backend_funcionario_departamento.entity.Departamento;
 import com.ufpr.backend_funcionario_departamento.entity.Funcionario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -45,5 +46,13 @@ public interface FuncionarioRepository extends JpaRepository<Funcionario, Long> 
     List<Funcionario> findByQuantityOfDependents(Integer dependents);
 
     List<Funcionario> FindByNameLike(String subStringNome);
+
+    // Uma consulta que lista todos os funcionários de um determinado departamento que
+    //não possuam dependentes utilizando parâmetros nomeados.
+    @Query("SELECT f " +
+            "FROM Funcionario f " +
+            "WHERE quantDependentes=0 AND departamento= :departamento")
+    List<Funcionario> findEmployeesDepentsEqualZeroByDepartament(@Param("departamento") Departamento departamento);
+
 
 }
