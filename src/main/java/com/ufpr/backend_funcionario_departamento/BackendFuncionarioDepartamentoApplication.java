@@ -28,7 +28,7 @@ public class BackendFuncionarioDepartamentoApplication {
 
 			log.info("");
 			log.info("");
-			log.info("===========Listagem das Musicas");
+			log.info("===========Listagem de todos os Departamentos");
 			for (Departamento nickname : departamentoService.findAllDepartamentos()) {
 				log.info(nickname.toString());
 			}
@@ -37,7 +37,7 @@ public class BackendFuncionarioDepartamentoApplication {
 			log.info("");
 			log.info("===========Listagem das Funcionários");
 			for(Funcionario func : funcionarioService.findAllFuncionarios())
-				log.warn(func.toString());
+				log.info(func.toString());
 
 			log.info("");
 			log.info("");
@@ -119,11 +119,22 @@ public class BackendFuncionarioDepartamentoApplication {
 			log.info("");
 			log.info("");
 			log.info("==========12. Listar todos os funcionários de um determinado departamento que não possuam dependentes");
-			Departamento dep01 = departamentoService.findAllDepartamentos().get(4); // index 04 do departamento Financeiro
-			for(Funcionario func: funcionarioService.findEmployeesDepentsEqualZeroByDepartamentJPQL(dep01)) {
+			Departamento dep04 = departamentoService.findAllDepartamentos().get(4); // index 04 do departamento Financeiro
+			for(Funcionario func: funcionarioService.findEmployeesDepentsEqualZeroByDepartamentJPQL(dep04)) {
 				log.info(func.toString());
 			}
 
+			log.info("");
+			log.info("");
+			log.info("==========13. update que troca todos os funcionários de um determinado departamento para outro departamento utilizando a anotação @Modifying");
+			Departamento dep01 = departamentoService.findAllDepartamentos().get(1);
+			log.info("===========Listagem ANTES do update");
+			for(Funcionario func : funcionarioService.findAllFuncionarios())
+				log.info(func.toString());
+			log.info("===========Listagem APÓS do update");
+			funcionarioService.updateEmployeesByDeparmentJPQL(dep04,dep01);
+			for(Funcionario func : funcionarioService.findAllFuncionarios())
+				log.info(func.toString());
 		};
 	}
 }

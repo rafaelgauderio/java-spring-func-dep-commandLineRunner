@@ -74,4 +74,10 @@ public class FuncionarioService {
     public List<Funcionario> findEmployeesDepentsEqualZeroByDepartamentJPQL(Departamento departamento) {
         return funcionarioRepository.findEmployeesDepentsEqualZeroByDepartament(departamento);
     }
+
+    @Transactional(readOnly = false)
+    public void updateEmployeesByDeparmentJPQL(Departamento departamentoFrom, Departamento departamentoTo) {
+        funcionarioRepository.updateEmployeesByDeparment(departamentoFrom,departamentoTo);
+    }
+
 }

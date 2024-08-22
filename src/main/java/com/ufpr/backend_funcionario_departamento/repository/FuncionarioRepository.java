@@ -2,7 +2,9 @@ package com.ufpr.backend_funcionario_departamento.repository;
 
 import com.ufpr.backend_funcionario_departamento.entity.Departamento;
 import com.ufpr.backend_funcionario_departamento.entity.Funcionario;
+import com.ufpr.backend_funcionario_departamento.service.DepartamentoService;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
@@ -54,5 +56,12 @@ public interface FuncionarioRepository extends JpaRepository<Funcionario, Long> 
             "WHERE quantDependentes=0 AND departamento= :departamento")
     List<Funcionario> findEmployeesDepentsEqualZeroByDepartament(@Param("departamento") Departamento departamento);
 
-
+    //Uma instrução de update que troca todos os funcionários de um determinado
+    //departamento para outro departamento utilizando a anotação @Modifying.
+    @Modifying
+    @Query("UPDATE Funcionario f " +
+            "SET f.departamento= ?2 " +
+            "WHERE f.departamento = ?1" +
+            "")
+    void updateEmployeesByDeparment(Departamento departamentoFrom, Departamento departamentoTo);
 }
