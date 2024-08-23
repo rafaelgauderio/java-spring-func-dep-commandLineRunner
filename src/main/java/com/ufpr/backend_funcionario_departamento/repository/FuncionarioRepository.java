@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -63,5 +64,13 @@ public interface FuncionarioRepository extends JpaRepository<Funcionario, Long> 
             "SET f.departamento= ?2 " +
             "WHERE f.departamento = ?1" +
             "")
-    void updateEmployeesByDeparment(Departamento departamentoFrom, Departamento departamentoTo);
+    void updateEmployeesByDepartment(Departamento departamentoFrom, Departamento departamentoTo);
+
+    //Uma instrução de delete que exclui todos os funcionários de um determinado
+    //departamento utilizando a anotação @Modifying.
+    @Transactional(readOnly = false)
+    @Modifying
+    @Query("DELETE Funcionario f " +
+            "WHERE f.departamento = ?1")
+    void deleteEmployee(Departamento departamento);
 }

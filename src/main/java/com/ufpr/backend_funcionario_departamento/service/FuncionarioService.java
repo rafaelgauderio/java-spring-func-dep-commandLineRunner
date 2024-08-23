@@ -77,7 +77,12 @@ public class FuncionarioService {
 
     @Transactional(readOnly = false)
     public void updateEmployeesByDeparmentJPQL(Departamento departamentoFrom, Departamento departamentoTo) {
-        funcionarioRepository.updateEmployeesByDeparment(departamentoFrom,departamentoTo);
+        funcionarioRepository.updateEmployeesByDepartment(departamentoFrom,departamentoTo);
+    }
+
+    public void deleteEmployeeJPQL(Long id) {
+        Departamento departamento = departamentoRepository.getReferenceById(id);
+        funcionarioRepository.deleteEmployee(departamento);
     }
 
 }

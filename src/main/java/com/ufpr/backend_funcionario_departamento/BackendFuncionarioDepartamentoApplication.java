@@ -128,13 +128,24 @@ public class BackendFuncionarioDepartamentoApplication {
 			log.info("");
 			log.info("==========13. update que troca todos os funcionários de um determinado departamento para outro departamento utilizando a anotação @Modifying");
 			Departamento dep01 = departamentoService.findAllDepartamentos().get(1);
-			log.info("===========Listagem ANTES do update");
+			log.info("===========Listagem de Funcionários ANTES o update");
 			for(Funcionario func : funcionarioService.findAllFuncionarios())
 				log.info(func.toString());
-			log.info("===========Listagem APÓS do update");
+			log.info("===========Listagem de Funcionários APÓS o update");
 			funcionarioService.updateEmployeesByDeparmentJPQL(dep04,dep01);
 			for(Funcionario func : funcionarioService.findAllFuncionarios())
 				log.info(func.toString());
+
+			log.info("");
+			log.info("");
+			log.info("========14. Uma instrução de delete que exclui todos os funcionários de um determinado departamento utilizando a anotação @Modifying.");
+			funcionarioService.deleteEmployeeJPQL(2L); // vai excluir todos os funcionários de departamento de TI
+			log.info("===========Listagem de Funcionários APÓS a exclusão");
+			for(Funcionario func : funcionarioService.findAllFuncionarios())
+				log.info(func.toString());
+
+
+
 		};
 	}
 }
