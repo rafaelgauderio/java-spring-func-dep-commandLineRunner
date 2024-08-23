@@ -85,4 +85,11 @@ public class FuncionarioService {
         funcionarioRepository.deleteEmployee(departamento);
     }
 
+    @Transactional(readOnly = false)
+    public void saveNewEmployee(Funcionario func, Departamento dep) {
+        departamentoRepository.save(dep);
+        func.setDepartamento(dep);
+        funcionarioRepository.save(func);
+    }
+
 }

@@ -144,8 +144,19 @@ public class BackendFuncionarioDepartamentoApplication {
 			for(Funcionario func : funcionarioService.findAllFuncionarios())
 				log.info(func.toString());
 
-
-
+			log.info("");
+			log.info("");
+			log.info("========15. Criar um método na classe de serviço de departamento para salvar um departamento, associar esse departamento a um funcionário e salvar esse funcionário em um mesmo controle de transação(@Transactional)");
+			Departamento dep05 = departamentoService.findAllDepartamentos().get(5);
+			Funcionario funcionario = new Funcionario();
+			funcionario.setNome("Maycon");
+			funcionario.setCargo("Vendedor");
+			funcionario.setSalario(5600.00);
+			funcionario.setQuantDependentes(2);
+			funcionarioService.saveNewEmployee(funcionario,dep05);
+			log.info("========Listagem de funcionários após a inserção de novo no banco de dados");
+			for(Funcionario func : funcionarioService.findAllFuncionarios())
+				log.info(func.toString());
 		};
 	}
 }

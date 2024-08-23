@@ -3,6 +3,7 @@ INSERT INTO departamento (nome_departamento) VALUES ('TI');
 INSERT INTO departamento (nome_departamento) VALUES ('Compras');
 INSERT INTO departamento (nome_departamento) VALUES ('Estoque');
 INSERT INTO departamento (nome_departamento) VALUES ('Financeiro');
+INSERT INTO departamento (nome_departamento) VALUES ('Vendas');
 
 INSERT INTO funcionario (nome_func, quantidade_dependentes_func, salario_func, cargo_func, departamento_func)
 VALUES ('Rafael de Luca', 3, 2500.50, 'Programador', 2);
