@@ -6,6 +6,7 @@ import com.ufpr.backend_funcionario_departamento.service.DepartamentoService;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.jpa.repository.query.Procedure;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -73,4 +74,9 @@ public interface FuncionarioRepository extends JpaRepository<Funcionario, Long> 
     @Query("DELETE Funcionario f " +
             "WHERE f.departamento = ?1")
     void deleteEmployee(Departamento departamento);
+
+    // Implementar a chamada de uma stored procedure criada no banco de dados, que
+    //aumenta o salário de todos os funcionários em X porcento, onde X é um número inteiro.
+    @Procedure("proc_increase_salary_ten_per_cent")
+    void procedure_increase_salary_ten_per_cent(Integer percent);
 }

@@ -92,4 +92,8 @@ public class FuncionarioService {
         funcionarioRepository.save(func);
     }
 
+    public void procedure_increase_salary_ten_per_cent (Integer percent) {
+        funcionarioRepository.procedure_increase_salary_ten_per_cent(percent);
+    }
+
 }
